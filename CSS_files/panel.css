@@ -1,0 +1,97 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Jetbrains mono,Hack;
+    background-color: black;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0f0; /* Dark green */
+    color: rgb(0, 0, 0);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #171717;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    padding: 2rem;
+}
+
+aside {
+    width: 20%;
+    background-color: #001a00; /* Very dark green */
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    margin-bottom: 1rem;
+}
+
+aside ul li a {
+    color: #00e600; /* Bright green */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+aside ul li a:hover {
+    text-decoration: underline;
+}
+
+section.content {
+    width: 75%;
+    margin-left: 2rem;
+    background-color: #001a00; /* Very dark green */
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+section.content h2 {
+    color: #00e600; /* Bright green */
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: #13f41aba; /* Dark green */
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 0.5rem 0;
+    position: absolute;
+    width: 100%;
+    
+    bottom: 0;
+}
