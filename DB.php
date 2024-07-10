@@ -2,7 +2,7 @@
 // Database credentials
 $dbHost = 'localhost';  // MySQL server (usually 'localhost')
 $dbUsername = 'username';  // MySQL username
-$dbPassword = '***********';  // MySQL password
+$dbPassword = '**********';  // MySQL password
 $dbName = 'CyberReport';  // MySQL database name
 
 // Create connection
