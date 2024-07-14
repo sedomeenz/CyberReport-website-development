@@ -33,52 +33,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         setcookie("user_id", $row['user_id'], time() + (7 * 24 * 60 * 60), "/");
         http_response_code(302);
         // Redirect to a welcome page or dashboard.
-        header("Location: ./Userpanel.php");
+        header("Location: ./userpanel/Userpanel.php");
         exit;
     } else {
         // Authentication failed
-        $Error_message = "Your username and password are not valid, try again";
+      $Error_message = "Your username and password are not valid, try again ):";  
+      $username = $_POST['username'];
     }
-}
-
-if (!is_null($Error_message)) {
-    echo "<p style='color: red; text-align: center; font-family: Jetbrains mono;'>$Error_message</p>";
 }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Login Form | CyberReport </title> 
-    <link rel="stylesheet" href="./CSS_files/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-  </head>
-  <body>
-    <p class="text">Login page</p>
 
-    <div class="container">
-    
-      <div class="wrapper">
-        <div class="title"><span>Login Form</span></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form | CyberReport</title>
+  <link rel="stylesheet" href="./CSS_files/Login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="title"><span>Login Form</span></div>
 
-        <form action="./Login.php" method="POST">
-          <div class="row">
-            <i class="fas fa-user"></i>
-            <input type="text" name="username" placeholder="Username" required>
-          </div>
-          <div class="row">
-            <i class="fas fa-lock"></i>
-            <input type="password" name="password" placeholder="Password" required>
-          </div>
-          <div class="pass"><a href="#">Forgot password?</a></div>
-          <div class="row button">
-            <input type="submit" id="submit" value="Login">
-          </div>
-          <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
-        </form>
-
-      </div>
+      <form action="./Login.php" method="POST">
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="row">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <?php 
+        if (isset($username)) { 
+          echo "<div class='pass-link'><a href='./Forget_password.php?username= $username '>Forgot password?</a></div>";
+        }else { 
+          echo "<div class='pass-link'><a href='./Forget_password.php'>Forgot password</a></div>"; }
+        ?>
+        <div class="row button">
+          <input type="submit" id="submit" value="Login">
+        </div>
+        <div class="signin-link">Not a member?<a href="./signup.php">Signup here</a></div>
+      </form>
     </div>
-  </body>
+  </div>
+<?php
+if (!is_null($Error_message)) {
+    echo "<div class='error-message'>$Error_message</div>";
+}
+?>
+</body>
 </html>
