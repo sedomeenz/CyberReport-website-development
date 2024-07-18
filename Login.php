@@ -1,5 +1,6 @@
 <?php
 include './DB.php';
+session_start();
 
 $Error_message = null;
 
@@ -28,9 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //print_r($row) ;
 
         // Authentication successful
-        setcookie("is_logged", "true", time() + (7 * 24 * 60 * 60), "/");
-        setcookie("username", $row['username'], time() + (7 * 24 * 60 * 60), "/");
-        setcookie("user_id", $row['user_id'], time() + (7 * 24 * 60 * 60), "/");
+        $_SESSION['is_logged'] = true; 
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['user_id'] = $row['user_id'];
         http_response_code(302);
         // Redirect to a welcome page or dashboard.
         header("Location: ./userpanel/Userpanel.php");

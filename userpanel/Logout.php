@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <h1>Are you sure you want to logout? ):</h1>
-        <a href="/Login.php" onclick="deleteAllCookies();"> Yes</a>
+        <a href="/Login.php" onclick="deleteAllCookies();sessionStorage.clear();"> Yes</a>
         <br><br>
-        <a href="./User_panel.php">NO</a>
+        <a href="./Userpanel.php">NO</a>
     </div>
 
-    <script src="/JS_files/func_logout.js" >
+    <script src="/func/func_logout.js" >
     </script>
 
 </body>

@@ -1,9 +1,9 @@
 <?php
-$is_logged = isset($_COOKIE["is_logged"]) ? $_COOKIE["is_logged"] : "";
-$user_id = isset($_COOKIE["user_id"]) ? $_COOKIE["user_id"] : "";
+$is_logged = isset($_SESSION["is_logged"]) ? $_SESSION["is_logged"] : "";
+$user_id = isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : "";
 
 // Check if user is logged in and username is not null
-if ($is_logged == "true" && !is_null($user_id)) {
+if ($is_logged == "true" && isset($user_id)) {
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ if ($is_logged == "true" && !is_null($user_id)) {
             </ul>
         </aside>
         <section class="content">
-            <h2>Welcome, <?php echo htmlspecialchars($_COOKIE["username"]); ?></h2>
+            <h2>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></h2>
             <p>This is your user panel. Here you can manage your account, check messages, and update settings.</p>
         </section>
     </main>
